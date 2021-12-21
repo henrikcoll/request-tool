@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Request Tool</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+</head>
+
+<body>
+	<div id="app">
+		<section class="section">
+			<div class="container">
+				<div class="columns is-centered is-multiline">
+					<div class="column is-narrow">
+						<h4 class="title is-4 has-text-centered">Send requests to:</h4>
+						<pre><code>{{ requestUrl }}</code></pre>
+					</div>
+				</div>
+				<div class="columns is-centered is-multiline">
+					<div class="column">
+						<h4 class="title is-4 has-text-centered">Requests</h4>
+					</div>
+					<div class="event column is-12" v-for="event in events.reverse()">
+						<pre><code>{{ JSON.stringify(event, null, 4) }}</code></pre>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="/app/app.js"></script>
+</body>
+
+</html>
